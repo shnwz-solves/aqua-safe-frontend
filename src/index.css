@@ -1,13 +1,37 @@
-body {
+/* src/index.css */
+/* Universal Box Sizing */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Body Styling - Reset for per-page image backgrounds */
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Background set to transparent/minimal, as page components will provide images */
+  background-color: transparent; /* Changed to transparent */
+  color: white; /* Default text color */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Ensure the main App container covers the screen */
+.App {
+  background-color: transparent;
+  min-height: 100vh; /* Cover the viewport height */
+  display: flex;
+  flex-direction: column; /* Allows navbar and content to stack */
+  position: relative; /* For z-index context if backgrounds are absolute */
+  z-index: 0;
 }

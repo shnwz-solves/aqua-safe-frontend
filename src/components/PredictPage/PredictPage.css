@@ -1,0 +1,214 @@
+/* General Reset */
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-image: url("../../../public/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align at the top */
+}
+
+/* Container Styling */
+.container {
+  width: 80vw;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  /* backdrop-filter: blur(10px); */
+  max-width: 100%; /* Limit container width */
+  margin-top: 2rem; /* Give some space from the top */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Space between form and result */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Styling */
+h1 {
+  font-size: 2.5rem;
+  color: #4caf50;
+}
+.containerh1 {
+  padding: 0.6rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  /* backdrop-filter: blur(10px); */
+  max-width: 90vw; /* Limit container width */
+  margin-top: 1rem; /* Give some space from the top */
+}
+/* Form Styling */
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 50%; /* Half-width for the form */
+  min-width: 400px; /* Prevent form from shrinking */
+  max-width: 600px; /* Max-width to prevent form from becoming too wide */
+}
+
+.form-input {
+  padding: 0.4rem;
+  margin: 0.8rem;
+  height: 2.5rem;
+}
+
+input[type="number"] {
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 300px;
+  min-width: 100px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+}
+
+/* Button Styling */
+button {
+  height: 3rem;
+  padding: 1rem 2rem;
+  font-size: 16px;
+  margin: auto;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(120deg, #4caf50, #66bb6a);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 65%;
+  margin-top: 25px;
+}
+
+button:hover {
+  background: linear-gradient(120deg, #43a047, #388e3c);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Spinner Animation */
+.spinner {
+  animation: spin 2s linear infinite;
+  font-size: 24px; /* Adjust spinner size */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form Error Styling */
+.form-error {
+  color: #d32f2f;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Prediction Result Styling */
+.prediction-result {
+  width: 40%; /* Takes up 40% of the container */
+  min-width: 300px; /* Ensures it doesn't shrink too much */
+  padding: 25px;
+  text-align: left;
+  color: white;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.result:hover {
+  transform: translateY(-5px);
+}
+
+.result.safe {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 2px solid #4caf50;
+}
+
+.result.unsafe {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 2px solid #f44336;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-container {
+    flex-direction: column;
+  }
+
+  .form {
+    width: 100%;
+    max-width: none;
+  }
+
+  .prediction-result {
+    color: white;
+    margin-right: 2rem;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+}

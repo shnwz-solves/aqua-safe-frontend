@@ -1,0 +1,316 @@
+/* Universal Box Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Overall Page Styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Matching the blue gradient from the screenshot */
+  background: linear-gradient(
+    to right,
+    #010326,
+    #0f8c75
+  ); /* Darker blue to a more vibrant blue */
+  color: white;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  overflow-x: hidden; /* Prevent horizontal scroll for clip-path */
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: transparent; /* Navbar itself should be transparent if it overlays content */
+  padding: 20px 80px; /* Increased padding for more space */
+  color: rgb(255, 255, 255);
+  position: absolute; /* Position over the home-section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center; /* Center the container */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px; /* Max width for nav content */
+}
+
+.nav-logo {
+  font-size: 1.8em; /* Slightly larger logo */
+  font-weight: bold;
+  color: #ffffff; /* Light blue accent */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 60px; /* Increased gap between links */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em; /* Slightly larger font size */
+  transition: color 0.3s;
+  padding: 5px 10px; /* Add padding for better hit area */
+  border-radius: 5px;
+}
+
+.nav-links li a:hover {
+  color: #90e0ef;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Main Home Section */
+.home-section {
+  display: flex;
+  height: 90vh; /* Takes full viewport height */
+  padding-top: 30px; /* Account for navbar height */
+  max-width: 1400px; /* Overall max width for the content area */
+  margin: 0 auto; /* Center the section */
+  position: relative; /* Needed for any absolute positioning inside */
+}
+
+/* Left Panel */
+.left-content {
+  flex: 1;
+  padding: 80px 60px; /* Padding inside the left panel */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the left within its space */
+  text-align: left; /* Ensure text aligns left */
+}
+
+/* "YOUR LOGO" text style */
+.top-logo-text {
+  font-weight: bold;
+  color: #90e0ef; /* Light blue accent */
+  margin-bottom: 20px; /* Space below the logo text */
+  font-size: 1.2em;
+  display: flex; /* To align icon and text */
+  align-items: center;
+  gap: 5px;
+}
+
+.top-logo-text .logo-icon {
+  font-size: 1.5em; /* Adjust icon size */
+}
+
+/* Main Heading (WATER QUALITY PREDICTION USING ML) */
+.left-content h1 {
+  font-size: 3.8em; /* Significantly larger */
+  line-height: 1.1;
+  font-weight: 800; /* Extra bold */
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Match screenshot style */
+  color: rgb(255, 255, 255); /* Main heading color */
+  /* Remove text-align: center if it was here, now aligns left */
+}
+
+.left-content h1 span {
+  color: #90e0ef; /* Accent color for the 'PREDICTION USING ML' part */
+}
+
+/* Paragraph Text */
+.left-content p {
+  font-size: 1.1em; /* Slightly larger paragraph font */
+  margin-bottom: 40px; /* More space below paragraph */
+  max-width: 600px; /* Control paragraph width */
+  color: #d9f3ff; /* Lighter white for readability */
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  background: #1fbf92; /* Matching blue for the button */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 15px 35px; /* Larger padding for button */
+  border-radius: 30px; /* Highly rounded corners */
+  font-weight: bold;
+  transition: 0.3s ease;
+  display: inline-block; /* Essential for padding/margin on inline elements */
+  text-align: center;
+  letter-spacing: 1px; /* Slightly spread out letters */
+}
+
+.btn:hover {
+  background: #0096c7; /* Darker hover state */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 60px; /* More space below the button */
+  display: flex; /* Use flexbox to align icons */
+  gap: 25px; /* Space between icons */
+}
+
+.social-icons a {
+  font-size: 1.8em; /* Larger icons */
+  color: #90e0ef; /* Light blue accent */
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2); /* Pop effect on hover */
+}
+
+/* Right Panel - Image and Diagonal Cut */
+.right-content {
+  flex: 1;
+  background: rgb(225, 225, 225); /* White background for the image section */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Adjust clip-path to match the screenshot's diagonal line */
+  /* The percentage for the diagonal line is key here */
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+  /* Ensure it takes full height relative to home-section */
+  height: 90%;
+}
+
+.image-container {
+  width: 100%; /* Control the image container width */
+  max-width: 600px; /* Prevent image from getting too large */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%; /* Image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  margin-right: 10%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  /* Adjust padding and font sizes for slightly smaller desktops/large tablets */
+  .navbar {
+    padding: 15px 50px;
+  }
+  .nav-links {
+    gap: 40px;
+  }
+  .left-content {
+    padding: 60px 40px;
+  }
+  .left-content h1 {
+    font-size: 3.2em;
+  }
+  .left-content p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-section {
+    flex-direction: column; /* Stack left and right content */
+    height: auto; /* Allow content to dictate height */
+    padding-top: 0; /* More space for sticky navbar if it's there */
+    align-items: center; /* Center items when stacked */
+  }
+
+  .navbar {
+    padding: 15px 20px; /* Smaller padding for mobile nav */
+  }
+
+  .nav-container {
+    flex-direction: column; /* Stack logo and links if needed */
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 25px; /* Smaller gap for mobile links */
+    justify-content: center; /* Center links in a row */
+    flex-wrap: wrap; /* Allow links to wrap */
+  }
+
+  .nav-logo {
+    font-size: 1.6em;
+  }
+
+  .left-content {
+    padding: 40px 20px; /* Reduced padding for mobile */
+    align-items: center; /* Center text content for mobile */
+    text-align: center;
+  }
+
+  .left-content h1 {
+    font-size: 2.5em; /* Smaller heading on tablets/mobile */
+  }
+  .left-content p {
+    font-size: 0.95em;
+    max-width: 90%; /* Allow paragraph to take more width */
+  }
+
+  .btn {
+    padding: 12px 30px;
+    font-size: 0.9em;
+  }
+
+  .social-icons {
+    margin-top: 40px;
+    justify-content: center; /* Center social icons */
+  }
+
+  .right-content {
+    clip-path: none; /* Remove diagonal cut on smaller screens */
+    padding: 20px 0; /* Padding around image when stacked */
+    min-height: 400px; /* Ensure image section has some height */
+    width: 100%; /* Take full width */
+  }
+
+  .image-container {
+    width: 90%; /* Image container wider on mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 10px;
+  }
+
+  .nav-links li a {
+    font-size: 1em;
+  }
+
+  .left-content h1 {
+    font-size: 2em; /* Even smaller heading for phones */
+  }
+  .left-content p {
+    font-size: 0.9em;
+  }
+  .btn {
+    padding: 10px 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .left-content h1 {
+    font-size: 1.6em; /* Smallest heading for very small phones */
+  }
+  .left-content p {
+    font-size: 0.85em;
+  }
+  .top-logo-text {
+    font-size: 1em;
+  }
+  .social-icons a {
+    font-size: 1.5em;
+  }
+}
